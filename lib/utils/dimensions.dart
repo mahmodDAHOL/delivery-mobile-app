@@ -38,6 +38,7 @@ class Dimensions {
   static double icon12 = screenHeight / 70.33;
   static double icon15 = screenHeight / 56.26;
   static double icon17 = screenHeight / 49.64;
+  static double icon20 = screenHeight / 42.2;
   static double icon24 = screenHeight / 35.16;
 
   static double radius5 = screenHeight / 168.8;
@@ -45,4 +46,7 @@ class Dimensions {
   static double radius15 = screenHeight / 56.27;
   static double radius20 = screenHeight / 42.2;
   static double radius30 = screenHeight / 28.13;
+
+  // poular food
+  static double popularFoodImgSize = screenHeight / 2.41;
 }
