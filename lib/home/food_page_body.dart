@@ -39,6 +39,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
+      // Slider Section
       Container(
         height: Dimensions.pageView,
         child: PageView.builder(
@@ -48,6 +49,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               return _buildPageItem(position);
             }),
       ),
+      // Dots
       DotsIndicator(
         dotsCount: _itemCount,
         position: _currPageValue,
@@ -57,6 +59,35 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             activeSize: Size(Dimensions.width18, Dimensions.height9),
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(Dimensions.radius5))),
+      ),
+      SizedBox(
+        height: Dimensions.height30,
+      ),
+      //Populer Text
+      Container(
+        margin: EdgeInsets.only(left: Dimensions.width30),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            BigText(text: "Popular"),
+            SizedBox(width: Dimensions.width10),
+            Container(
+              margin: EdgeInsets.only(bottom: Dimensions.height3),
+              child: BigText(
+                text: ".",
+                color: Colors.black26,
+              ),
+            ),
+            SizedBox(width: Dimensions.width10),
+            Container(
+              margin: EdgeInsets.only(bottom: Dimensions.height2),
+              child: SmallText(
+                text: "food pairing",
+                color: Colors.black26,
+              ),
+            ),
+          ],
+        ),
       )
     ]);
   }
