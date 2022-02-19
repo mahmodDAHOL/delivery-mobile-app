@@ -217,8 +217,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           child: Container(
             height: Dimensions.pageViewTextContainer,
             margin: EdgeInsets.only(
-                left: Dimensions.width20,
-                right: Dimensions.width20,
+                left: Dimensions.width30,
+                right: Dimensions.width30,
                 bottom: Dimensions.height30),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
@@ -249,7 +249,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             (index) => Icon(
                                   Icons.star,
                                   color: AppColors.mainColor,
-                                  size: Dimensions.icon12,
+                                  size: Dimensions.icon15,
                                 )),
                       ),
                       SizedBox(
