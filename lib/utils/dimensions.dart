@@ -19,8 +19,10 @@ class Dimensions {
   static double height30 = screenHeight / 28.13;
   static double height45 = screenHeight / 18.75;
   static double height60 = screenHeight / 14.06;
+  static double height80 = screenHeight / 10.55;
   static double height120 = screenHeight / 7.03;
   static double height100 = screenHeight / 8.44;
+  static double height400 = screenHeight / 2.11;
   static double height700 = screenHeight / 1.2;
 
   static double width10 = screenWidth / 39;
@@ -29,6 +31,7 @@ class Dimensions {
   static double width20 = screenWidth / 19.5;
   static double width30 = screenWidth / 13;
   static double width45 = screenWidth / 8.66;
+  static double width60 = screenWidth / 6.5;
   static double width100 = screenWidth / 3.9;
   static double width120 = screenWidth / 3.25;
 
@@ -36,6 +39,7 @@ class Dimensions {
   static double font15 = screenHeight / 56.26;
   static double font20 = screenHeight / 42.2;
   static double font26 = screenHeight / 32.46;
+  static double font30 = screenHeight / 28.13;
 
   static double icon12 = screenHeight / 70.33;
   static double icon15 = screenHeight / 56.26;
@@ -43,6 +47,7 @@ class Dimensions {
   static double icon20 = screenHeight / 42.2;
   static double icon24 = screenHeight / 35.16;
   static double icon26 = screenHeight / 32.46;
+  static double icon30 = screenHeight / 28.13;
 
   static double radius5 = screenHeight / 168.8;
   static double radius10 = screenHeight / 84.4;
@@ -54,5 +59,4 @@ class Dimensions {
   static double popularFoodImgSize = screenHeight / 2.41;
   static double bottomHeightBar = screenHeight / 7.03;
   static double textHeight = screenHeight / 5.63;
-  static double expandHeight = screenHeight / 2.81;
 }

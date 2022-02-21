@@ -7,6 +7,7 @@ class AppIcon extends StatelessWidget {
   final Color backgroundColor;
   final Color iconColor;
   final double size;
+  final double iconSize;
 
   const AppIcon({
     Key? key,
@@ -14,6 +15,7 @@ class AppIcon extends StatelessWidget {
     this.backgroundColor = const Color(0xFFfcf4e4),
     this.iconColor = const Color(0xFF756d54),
     this.size = 40,
+    this.iconSize = 0,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class AppIcon extends StatelessWidget {
             color: backgroundColor),
         child: Icon(
           icon,
-          size: Dimensions.icon20,
+          size: iconSize == 0 ? Dimensions.icon20 : iconSize,
           color: iconColor,
         ));
   }
