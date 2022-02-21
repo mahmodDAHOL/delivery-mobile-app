@@ -18,6 +18,7 @@ class Dimensions {
   static double height20 = screenHeight / 42.2;
   static double height30 = screenHeight / 28.13;
   static double height45 = screenHeight / 18.75;
+  static double height60 = screenHeight / 14.06;
   static double height120 = screenHeight / 7.03;
   static double height100 = screenHeight / 8.44;
   static double height700 = screenHeight / 1.2;
@@ -34,12 +35,14 @@ class Dimensions {
   static double font10 = screenHeight / 84.4;
   static double font15 = screenHeight / 56.26;
   static double font20 = screenHeight / 42.2;
+  static double font26 = screenHeight / 32.46;
 
   static double icon12 = screenHeight / 70.33;
   static double icon15 = screenHeight / 56.26;
   static double icon17 = screenHeight / 49.64;
   static double icon20 = screenHeight / 42.2;
   static double icon24 = screenHeight / 35.16;
+  static double icon26 = screenHeight / 32.46;
 
   static double radius5 = screenHeight / 168.8;
   static double radius10 = screenHeight / 84.4;
@@ -49,4 +52,7 @@ class Dimensions {
 
   // poular food
   static double popularFoodImgSize = screenHeight / 2.41;
+  static double bottomHeightBar = screenHeight / 7.03;
+  static double textHeight = screenHeight / 5.63;
+  static double expandHeight = screenHeight / 2.81;
 }
