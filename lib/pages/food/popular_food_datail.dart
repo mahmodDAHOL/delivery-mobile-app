@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/controller/popular_product_controller.dart';
 import 'package:untitled/utils/colors.dart';
 import 'package:untitled/utils/dimensions.dart';
 import 'package:untitled/utils/widgets/appIcon.dart';
@@ -7,10 +9,12 @@ import 'package:untitled/utils/widgets/big_text.dart';
 import 'package:untitled/utils/widgets/expandable_text_widget.dart';
 
 class PopularFoodDetail extends StatelessWidget {
-  const PopularFoodDetail({Key? key}) : super(key: key);
+  int pageId;
+  PopularFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<PopularProductController>().getPopularProductList;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -33,8 +37,11 @@ class PopularFoodDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(
-                  icon: Icons.arrow_back_ios,
+                GestureDetector(
+                  onTap: () {},
+                  child: AppIcon(
+                    icon: Icons.arrow_back_ios,
+                  ),
                 ),
                 AppIcon(
                   icon: Icons.shopping_cart_outlined,
