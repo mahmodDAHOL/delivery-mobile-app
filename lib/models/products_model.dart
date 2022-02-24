@@ -53,14 +53,14 @@ class ProductModel {
       this.typeId});
   ProductModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    id = json['name'];
-    id = json['description'];
-    id = json['price'];
-    id = json['stars'];
-    id = json['img'];
-    id = json['location'];
-    id = json['createdAt'];
-    id = json['updated'];
-    id = json['type_id'];
+    name = json['name'];
+    description = json['description'];
+    price = json['price'];
+    stars = json['stars'];
+    img = json['img'];
+    location = json['location'];
+    createdAt = json['created_at'];
+    updatedAt = json['updat_at'];
+    typeId = json['type_id'];
   }
 }
