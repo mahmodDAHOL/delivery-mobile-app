@@ -16,8 +16,8 @@ class RecommendedFoodDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var product = (Get.find<PopularProductController>().getPopularProductList
-        as List)[pageId];
+    var product =
+        Get.find<PopularProductController>().popularProductList[pageId];
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -31,15 +31,13 @@ class RecommendedFoodDetail extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(RouteHelper.getInitial());
+                    Get.toNamed(RouteHelper.initial);
                   },
                   child: AppIcon(
                     icon: Icons.clear,
-                    size: Dimensions.icon30,
                   ),
                 ),
-                AppIcon(
-                    icon: Icons.shopping_cart_outlined, size: Dimensions.icon30)
+                AppIcon(icon: Icons.shopping_cart_outlined)
               ],
             ),
             pinned: true,

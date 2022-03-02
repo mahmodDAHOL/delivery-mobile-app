@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/controller/cart_controller.dart';
 import 'package:untitled/controller/popular_product_controller.dart';
+import 'package:untitled/route/route_help.dart';
 import 'package:untitled/utils/app_constants.dart';
 import 'package:untitled/utils/colors.dart';
 import 'package:untitled/utils/dimensions.dart';
@@ -15,9 +17,11 @@ class PopularFoodDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PopularProductController controller = Get.find<PopularProductController>();
-    var product = (controller.getPopularProductList as List)[pageId];
-    controller.initProduct;
+    PopularProductController popularProductcontroller =
+        Get.find<PopularProductController>();
+    CartController cartcontroller = Get.find<CartController>();
+    var product = popularProductcontroller.popularProductList[pageId];
+    popularProductcontroller.initProduct(product, cartcontroller);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -44,7 +48,9 @@ class PopularFoodDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(RouteHelper.initial);
+                  },
                   child: AppIcon(
                     icon: Icons.arrow_back_ios,
                   ),
@@ -123,7 +129,7 @@ class PopularFoodDetail extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        popularProduct.setQuantity(true);
+                        popularProduct.setQuantity(false);
                       },
                       child: Icon(Icons.remove,
                           color: AppColors.signColor, size: Dimensions.icon26),
@@ -132,7 +138,7 @@ class PopularFoodDetail extends StatelessWidget {
                       width: Dimensions.width10 / 2,
                     ),
                     BigText(
-                      text: product.quantity.toString(),
+                      text: popularProduct.inCartItem.toString(),
                       size: Dimensions.font26,
                     ),
                     SizedBox(
@@ -140,7 +146,7 @@ class PopularFoodDetail extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        popularProduct.setQuantity(false);
+                        popularProduct.setQuantity(true);
                       },
                       child: Icon(
                         Icons.add,
@@ -159,10 +165,15 @@ class PopularFoodDetail extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: AppColors.mainColor,
                       borderRadius: BorderRadius.circular(Dimensions.radius20)),
-                  child: BigText(
-                      text: "\$ ${product.price!} add to cart",
-                      color: Colors.white,
-                      size: Dimensions.font26))
+                  child: GestureDetector(
+                    onTap: () {
+                      popularProduct.addItem(product);
+                    },
+                    child: BigText(
+                        text: "\$ ${product.price!} add to cart",
+                        color: Colors.white,
+                        size: Dimensions.font26),
+                  ))
             ],
           ),
         );

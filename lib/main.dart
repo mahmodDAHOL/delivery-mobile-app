@@ -21,12 +21,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.find<PopularProductController>().getPopularProductList();
     Get.find<RecommendedProductController>().getRecommendedProductList();
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "flutter Demo",
       home: MainFoodPage(),
       initialRoute: RouteHelper.initial,
-      // getPages: RouteHelper.routes,
+      getPages: RouteHelper.routes,
     );
   }
 }
