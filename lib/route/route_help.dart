@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:untitled/pages/cart/cart_page.dart';
 import 'package:untitled/pages/food/popular_food_datail.dart';
 import 'package:untitled/pages/food/recommended_food_detail.dart';
 import 'package:untitled/pages/home/main_food_page.dart';
@@ -29,6 +30,12 @@ class RouteHelper {
         page: () {
           var pageId = Get.parameters['pageId'];
           return RecommendedFoodDetail(pageId: int.parse(pageId!));
+        },
+        transition: Transition.fadeIn),
+    GetPage(
+        name: "/cart_list",
+        page: () {
+          return CartPage();
         },
         transition: Transition.fadeIn),
   ];

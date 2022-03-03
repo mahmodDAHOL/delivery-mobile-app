@@ -55,9 +55,45 @@ class PopularFoodDetail extends StatelessWidget {
                     icon: Icons.arrow_back_ios,
                   ),
                 ),
-                AppIcon(
-                  icon: Icons.shopping_cart_outlined,
-                ),
+                GetBuilder<PopularProductController>(builder: (controller) {
+                  return GestureDetector(
+                    onTap: () {
+                      Get.toNamed("/cart_list");
+                    },
+                    child: Stack(
+                      children: [
+                        AppIcon(
+                          icon: Icons.shopping_cart_outlined,
+                        ),
+                        AppIcon(
+                          icon: Icons.shopping_cart_outlined,
+                        ),
+                        controller.totalItems > 1
+                            ? Positioned(
+                                right: 0,
+                                top: 0,
+                                child: AppIcon(
+                                  icon: Icons.circle,
+                                  size: Dimensions.height25,
+                                  iconColor: Colors.transparent,
+                                  backgroundColor: AppColors.mainColor,
+                                ),
+                              )
+                            : Container(),
+                        controller.totalItems > 1
+                            ? Positioned(
+                                right: 4,
+                                top: 2,
+                                child: BigText(
+                                  text: "${controller.inCartItem}",
+                                  size: Dimensions.height15,
+                                  color: Colors.white,
+                                ))
+                            : Container(),
+                      ],
+                    ),
+                  );
+                })
               ],
             ),
           ),
