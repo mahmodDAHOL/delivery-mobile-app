@@ -68,7 +68,6 @@ class PopularProductController extends GetxController {
     if (exist) {
       _inCartItem = _cart.getQuantity(product);
     }
-    print("the quantity of ${product.name} in the cart is $_inCartItem");
   }
 
   void addItem(ProductModel product) {
