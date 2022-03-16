@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:untitled/controller/cart_controller.dart';
 import 'package:untitled/controller/popular_product_controller.dart';
 import 'package:untitled/controller/recommended_controller.dart';
@@ -10,11 +11,15 @@ import 'package:untitled/utils/app_constants.dart';
 
 // note: Get.find() is called that immediately initialize the instances that are on memory.
 Future<void> init() async {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  final SharedPreferences sharedPreferences = await _prefs;
+  Get.lazyPut(() => sharedPreferences);
+
   Get.lazyPut(() => ApiClient(appBaseUrl: AppConstants.BASE_URL));
 
   Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()));
   Get.lazyPut(() => RecommendedProductRepo(apiClient: Get.find()));
-  Get.lazyPut(() => CartRepo(apiClient: Get.find()));
+  Get.lazyPut(() => CartRepo(sharedPreferences: Get.find()));
 
   Get.lazyPut(() => PopularProductController(popularProductRepo: Get.find()));
   Get.lazyPut(

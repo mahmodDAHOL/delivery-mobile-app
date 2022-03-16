@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:untitled/controller/popular_product_controller.dart';
 import 'package:untitled/controller/recommended_controller.dart';
 import 'package:untitled/route/route_help.dart';
+import 'package:untitled/utils/dimensions.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key? key}) : super(key: key);
@@ -47,13 +48,13 @@ class _SplashScreenState extends State<SplashScreen>
               child: Center(
                   child: Image.asset(
                 "assets/images/logo.png",
-                width: 250,
+                width: Dimensions.width250,
               )),
             ),
             Center(
                 child: Image.asset(
               "assets/images/desc_of_logo.png",
-              width: 250,
+              width: Dimensions.width250,
             )),
           ],
         ));
