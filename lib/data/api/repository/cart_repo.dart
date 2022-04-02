@@ -9,6 +9,7 @@ class CartRepo extends GetxService {
   final SharedPreferences sharedPreferences;
   CartRepo({required this.sharedPreferences});
   List<String> cart = [];
+  List<String> cartHistory = [];
   void addToCartList(List<CartModel> cartList) {
     cart = [];
     // convert object to string because shared preferences only accept string
@@ -27,5 +28,35 @@ class CartRepo extends GetxService {
     carts.forEach(
         (element) => cartList.add(CartModel.fromJson(jsonDecode(element))));
     return cartList;
+  }
+
+  List<CartModel> getCartHistoryList() {
+    if (sharedPreferences.containsKey("cart-history-list")) {
+      cartHistory = [];
+      cartHistory = sharedPreferences.getStringList("cart-history-list")!;
+    }
+    List<CartModel> cartListHistory = [];
+    cartHistory.forEach((element) =>
+        cartListHistory.add(CartModel.fromJson(jsonDecode(element))));
+
+    return cartListHistory;
+  }
+
+  void addToCartHistoryList() {
+    if (sharedPreferences.containsKey("cart-history-list")) {
+      cartHistory = sharedPreferences.getStringList("cart-history-list")!;
+    }
+    for (int i = 0; i < cart.length; i++) {
+      print("history list" + cart[i]);
+
+      cartHistory.add(cart[i]);
+    }
+    removeCart();
+    sharedPreferences.setStringList("cart-history-list", cartHistory);
+  }
+
+  void removeCart() {
+    cart = [];
+    sharedPreferences.remove(AppConstants.CART_LIST);
   }
 }

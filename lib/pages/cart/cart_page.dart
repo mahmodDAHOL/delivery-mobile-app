@@ -243,7 +243,8 @@ class CartPage extends StatelessWidget {
                 ))
           ],
         ),
-        bottomNavigationBar: GetBuilder<CartController>(builder: (cartProduct) {
+        bottomNavigationBar:
+            GetBuilder<CartController>(builder: (cartController) {
           return Container(
             height: Dimensions.bottomHeightBar,
             padding: EdgeInsets.only(
@@ -273,7 +274,7 @@ class CartPage extends StatelessWidget {
                         width: Dimensions.width10 / 2,
                       ),
                       BigText(
-                        text: "\$ " + cartProduct.totalAmount.toString(),
+                        text: "\$ " + cartController.totalAmount.toString(),
                         size: Dimensions.font26,
                       ),
                       SizedBox(
@@ -293,7 +294,8 @@ class CartPage extends StatelessWidget {
                             BorderRadius.circular(Dimensions.radius20)),
                     child: GestureDetector(
                       onTap: () {
-                        // popularProduct.addItem(product);
+                        print("taped");
+                        cartController.addToHistory();
                       },
                       child: BigText(
                           text: "Check out",
