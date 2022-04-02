@@ -9,10 +9,14 @@ class CartController extends GetxController {
   final CartRepo cartRepo;
   // this class take popularProductRepo instance and contain method that store response body in a list
   CartController({required this.cartRepo});
+
   Map<int, CartModel> _items = {};
+
   Map<int, CartModel> get items => _items;
+
   // for storage and shared preferences
   List<CartModel> storageItems = [];
+
   void addItem(ProductModel product, int quantity) {
     if (_items.containsKey(product.id!)) {
       var totalItem = 0;
@@ -111,5 +115,20 @@ class CartController extends GetxController {
 
   void clear() {
     _items = {};
+    update();
+  }
+
+  List<CartModel> getCartHistoryList() {
+    return cartRepo.getCartHistoryList();
+  }
+
+  set setItems(Map<int, CartModel> setItems) {
+    _items = {};
+    _items = setItems;
+  }
+
+  void addToCartList() {
+    cartRepo.addToCartList(getItems);
+    update();
   }
 }

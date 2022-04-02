@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:untitled/pages/cart/cart_history.dart';
 import 'package:untitled/pages/home/main_food_page.dart';
+import 'package:untitled/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -20,13 +22,6 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   late PersistentTabController _controller;
 
-  List pages = [
-    MainFoodPage(),
-    Container(child: Center(child: Text("Next page"))),
-    Container(child: Center(child: Text("Next Next page"))),
-    Container(child: Center(child: Text("Next Next Next page"))),
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -37,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     return [
       MainFoodPage(),
       Container(child: Center(child: Text("Next page"))),
-      Container(child: Center(child: Text("Next Next page"))),
+      CartHistory(),
       Container(child: Center(child: Text("Next Next Next page"))),
     ];
   }
@@ -47,25 +42,25 @@ class _HomePageState extends State<HomePage> {
       PersistentBottomNavBarItem(
         icon: Icon(Icons.home),
         title: ("Home"),
-        activeColorPrimary: CupertinoColors.activeBlue,
+        activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.archive),
         title: ("history"),
-        activeColorPrimary: CupertinoColors.activeBlue,
+        activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.shopping_cart),
         title: ("cart"),
-        activeColorPrimary: CupertinoColors.activeBlue,
+        activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.person),
         title: ("me"),
-        activeColorPrimary: CupertinoColors.activeBlue,
+        activeColorPrimary: AppColors.mainColor,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
     ];
@@ -107,28 +102,4 @@ class _HomePageState extends State<HomePage> {
           NavBarStyle.style5, // Choose the nav bar style with this property.
     );
   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: pages[_selectedIndex],
-//       bottomNavigationBar: BottomNavigationBar(
-//         selectedItemColor: AppColors.mainColor,
-//         unselectedItemColor: Colors.amberAccent,
-//         showSelectedLabels: false,
-//         showUnselectedLabels: false,
-//         currentIndex: _selectedIndex,
-//         onTap: onTapNav,
-//         items: [
-//           BottomNavigationBarItem(
-//               icon: Icon(Icons.home_outlined), title: Text("Home")),
-//           BottomNavigationBarItem(
-//               icon: Icon(Icons.archive), title: Text("history")),
-//           BottomNavigationBarItem(
-//               icon: Icon(Icons.shopping_cart), title: Text("cart")),
-//           BottomNavigationBarItem(icon: Icon(Icons.person), title: Text("me")),
-//         ],
-//       ),
-//     );
-//   }
 }

@@ -11,9 +11,13 @@ class CartRepo extends GetxService {
   List<String> cart = [];
   List<String> cartHistory = [];
   void addToCartList(List<CartModel> cartList) {
+    var time = DateTime.now().toString();
     cart = [];
     // convert object to string because shared preferences only accept string
-    cartList.forEach((element) => cart.add(jsonEncode(element)));
+    cartList.forEach((element) {
+      element.time = time;
+      return cart.add(jsonEncode(element));
+    });
 
     sharedPreferences.setStringList(AppConstants.CART_LIST, cart);
   }

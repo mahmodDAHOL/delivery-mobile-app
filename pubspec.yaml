@@ -39,6 +39,7 @@ dependencies:
   persistent_bottom_nav_bar: ^4.0.2
   
   shared_preferences: ^2.0.13
+  intl: ^0.17.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -65,6 +66,7 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/desc_of_logo.png
+    - assets/images/empty_cart1.png
   #   - images/a_dot_ham.jpeg
 
   fonts:
