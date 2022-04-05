@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/controller/popular_product_controller.dart';
+import 'package:untitled/pages/auth/sign_up_page.dart';
 import 'package:untitled/pages/home/main_food_page.dart';
 import 'package:untitled/pages/splash_page.dart';
 import 'package:untitled/route/route_help.dart';
@@ -28,7 +29,9 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: "flutter Demo",
-          home: SplashScreen(),
+
+          home: SignUpPage(),
+          // home: SplashScreen(),
           // initialRoute: RouteHelper.getSplashPage(),
           getPages: RouteHelper.routes,
         );

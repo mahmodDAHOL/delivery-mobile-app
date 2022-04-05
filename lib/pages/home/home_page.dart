@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:untitled/pages/account/account_page.dart';
+import 'package:untitled/pages/auth/sign_up_page.dart';
 import 'package:untitled/pages/cart/cart_history.dart';
 import 'package:untitled/pages/home/main_food_page.dart';
 import 'package:untitled/utils/colors.dart';
@@ -30,12 +31,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   List<Widget> _buildScreens() {
-    return [
-      MainFoodPage(),
-      Container(child: Center(child: Text("Next page"))),
-      CartHistory(),
-      AccountPage()
-    ];
+    return [MainFoodPage(), SignUpPage(), CartHistory(), AccountPage()];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {

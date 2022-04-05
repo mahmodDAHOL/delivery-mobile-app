@@ -67,6 +67,10 @@ flutter:
     - assets/images/logo.png
     - assets/images/desc_of_logo.png
     - assets/images/empty_cart1.png
+    - assets/images/f.png
+    - assets/images/g.png
+    - assets/images/t.png
+
   #   - images/a_dot_ham.jpeg
 
   fonts:
