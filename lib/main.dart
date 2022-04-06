@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: "flutter Demo",
 
-          home: SignInPage(),
+          home: SignUpPage(),
           // home: SplashScreen(),
           // initialRoute: RouteHelper.getSplashPage(),
           getPages: RouteHelper.routes,
