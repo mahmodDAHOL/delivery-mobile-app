@@ -4,6 +4,7 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:untitled/base/no_data_page.dart';
+import 'package:untitled/controller/auth_controller.dart';
 import 'package:untitled/controller/cart_controller.dart';
 import 'package:untitled/controller/popular_product_controller.dart';
 import 'package:untitled/controller/recommended_controller.dart';
@@ -323,8 +324,12 @@ class CartPage extends StatelessWidget {
                                     BorderRadius.circular(Dimensions.radius20)),
                             child: GestureDetector(
                               onTap: () {
-                                print("taped");
-                                cartController.addToHistory();
+                                if (Get.find<AuthController>().userLoggedIn()) {
+                                  cartController.addToHistory();
+                                } else {
+                                  Get.toNamed(RouteHelper.getSignInPage());
+                                }
+                                ;
                               },
                               child: BigText(
                                   text: "Check out",

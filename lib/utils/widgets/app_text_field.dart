@@ -19,9 +19,9 @@ class AppTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Dimensions.screenHeight / 12,
+      // height: Dimensions.screenHeight / 12,
       margin:
-          EdgeInsets.only(left: Dimensions.width45, right: Dimensions.width45),
+          EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           color: Colors.white,
@@ -33,6 +33,7 @@ class AppTextField extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.2))
           ]),
       child: TextField(
+        keyboardType: TextInputType.multiline,
         obscureText: isObscure ? true : false,
         style: TextStyle(fontSize: Dimensions.font20),
         controller: textController,

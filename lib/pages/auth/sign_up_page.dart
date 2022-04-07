@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:untitled/base/show_custom_snackbar.dart';
 import 'package:untitled/controller/auth_controller.dart';
 import 'package:untitled/models/signup_body_model.dart';
+import 'package:untitled/pages/auth/sign_in_page.dart';
 import 'package:untitled/utils/widgets/app_text_field.dart';
 import 'package:untitled/utils/widgets/big_text.dart';
 
@@ -109,7 +110,7 @@ class SignUpPage extends StatelessWidget {
                         },
                         child: Container(
                             width: Dimensions.screenWidth / 3,
-                            height: Dimensions.screenHeight / 17,
+                            height: Dimensions.screenHeight / 14,
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.circular(Dimensions.radius30),
@@ -126,7 +127,8 @@ class SignUpPage extends StatelessWidget {
                       RichText(
                           text: TextSpan(
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () => Get.back(),
+                          ..onTap = () => Get.to(() => SignInPage(),
+                              transition: Transition.leftToRight),
                         style: TextStyle(
                             color: Colors.grey[500],
                             fontSize: Dimensions.font20),

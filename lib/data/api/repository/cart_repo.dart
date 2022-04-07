@@ -63,4 +63,10 @@ class CartRepo extends GetxService {
     cart = [];
     sharedPreferences.remove(AppConstants.CART_LIST);
   }
+
+  void removeCartHistory() {
+    removeCart();
+    cartHistory = [];
+    sharedPreferences.remove(AppConstants.CART_HISTORY_LIST);
+  }
 }

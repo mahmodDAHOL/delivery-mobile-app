@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/controller/auth_controller.dart';
+import 'package:untitled/route/route_help.dart';
 import 'package:untitled/utils/colors.dart';
 import 'package:untitled/utils/widgets/appIcon.dart';
 import 'package:untitled/utils/widgets/big_text.dart';
 
+import '../../controller/cart_controller.dart';
 import '../../utils/dimensions.dart';
 import '../../utils/widgets/accont_widget.dart';
 
@@ -107,11 +111,34 @@ class AccountPage extends StatelessWidget {
                         iconSize: Dimensions.icon30,
                         size: Dimensions.height40,
                       ),
-                      bigText: BigText(text: "Ahmed"),
+                      bigText: BigText(text: "messages"),
                     ),
                     SizedBox(
                       height: Dimensions.height20,
-                    )
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        if (Get.find<AuthController>().userLoggedIn()) {
+                          Get.find<AuthController>().clearSharedData();
+                          Get.find<CartController>().clear();
+                          Get.find<CartController>().clearCartHistory();
+                          Get.toNamed(RouteHelper.getSignInPage());
+                        }
+                      },
+                      child: AccountWidget(
+                        appIcon: AppIcon(
+                          icon: Icons.logout,
+                          backgroundColor: Colors.redAccent,
+                          iconColor: Colors.white,
+                          iconSize: Dimensions.icon30,
+                          size: Dimensions.height40,
+                        ),
+                        bigText: BigText(text: "logout"),
+                      ),
+                    ),
+                    SizedBox(
+                      height: Dimensions.height20,
+                    ),
                   ],
                 ),
               ),
