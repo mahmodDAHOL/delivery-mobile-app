@@ -16,6 +16,8 @@ import 'package:untitled/utils/widgets/appIcon.dart';
 import 'package:untitled/utils/widgets/big_text.dart';
 import 'package:untitled/utils/widgets/small_text.dart';
 
+import '../../controller/location_controller.dart';
+
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
 
@@ -325,7 +327,12 @@ class CartPage extends StatelessWidget {
                             child: GestureDetector(
                               onTap: () {
                                 if (Get.find<AuthController>().userLoggedIn()) {
-                                  cartController.addToHistory();
+                                  if (Get.find<LocationController>()
+                                      .addressList
+                                      .isEmpty) {
+                                    Get.toNamed(RouteHelper.addAddress);
+                                  }
+                                  // cartController.addToHistory();
                                 } else {
                                   Get.toNamed(RouteHelper.getSignInPage());
                                 }
